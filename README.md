@@ -1,4 +1,5 @@
 # better-logger
+
 A small node module providing an advanced logger interface with colors and date.
 As easy to use as the default [Console class](https://nodejs.org/api/console.html).
 
@@ -37,7 +38,7 @@ If status is undefined, debug output will be enabled.
 Set the prefix of a log function.
 Type can be one of these : **info** / **error** / **warn** / **debug**
 
-###setSeparator(newSeparator:String)
+### setSeparator(newSeparator:String)
 Set the separator for the **separator()** method.
 
 ### setDateFormat(newFormat:String, newColor:String)
