@@ -1,6 +1,6 @@
 {
   "name": "better-logger",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A small node module providing an advanced logger interface with colors and date",
   "main": "index.js",
   "scripts": {
