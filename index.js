@@ -13,6 +13,8 @@ var prefix = {
 	debug: colors.magenta('[DEBUG]') + ' ',
 }
 
+var separatorStr = '------------------------------------------------';
+
 var showDebug = false;
 
 /**
@@ -93,7 +95,7 @@ module.exports = {
 	 * @method     separator
 	 */
 	separator: function () {
-		console.log('------------------------------------------------');
+		console.log(separatorStr);
 	},
 
 	/**
@@ -127,6 +129,16 @@ module.exports = {
 	 */
 	setPrefix: function(type, newPrefix) {
 		prefix[type] = newPrefix;
+	},
+
+	/**
+	 * Set the separator for the module.separator() method
+	 *
+	 * @method     setSeparator
+	 * @param      {String}  newSeparator  Separator
+	 */
+	setSeparator: function(newSeparator) {
+		separatorStr = newSeparator;
 	},
 
 	/**
