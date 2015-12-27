@@ -4,27 +4,49 @@ As easy to use as the default [Console class](https://nodejs.org/api/console.htm
 
 ## Installation
 ```shell
-	npm install better-logger --save
+npm install better-logger --save
 ```
 
 ## Usage
 ```js
-	var Log = require('better-logger');
+var Log = require('better-logger');
 	
-	Log.info('info');
-	Log.warn('warn');
-	Log.error('error');
+Log.info('info');
+Log.warn('warn');
+Log.error('error');
 
-	Log.enableDebug();
-	Log.debug('debug');
+Log.enableDebug();
+Log.debug('debug');
 
-	Log.space();
-	Log.separator();
+// This is an example
+var obj = {foo: ['bar'], baz: undefined, qux: {a: 'b', c: 'd'}} 
+Log.dir(obj);
+
+Log.space();
+Log.separator();
 ```
 
-## Notes
-I used [colors](https://www.npmjs.com/package/colors) to set the color and [dateformat](https://www.npmjs.com/package/dateformat) for the date.
+## Styles
+I used [colors][colors] to set the color and [dateformat][dateformat] for the date.
 
+### enableDebug(status:Boolean)
+Enable (or disable) debug output.
+If status is undefined, debug output will be enabled.
+
+### setPrefix(type:String, newPrefix:String)
+Set the prefix of a log function.
+Type can be one of these : **info** / **error** / **warn** / **debug**
+
+###setSeparator(newSeparator:String)
+Set the separator for the **separator()** method.
+
+### setDateFormat(newFormat:String, newColor:String)
+Set the date format for [dateformat][dateformat].
+If newColor is specified, the date color is set to the newColor. (otherwise ignored)
+Colors list: [colors][colors]
 
 ## Release History
 * 0.1.0 Initial release
+
+[dateformat]: https://www.npmjs.com/package/dateformat
+[colors]: https://www.npmjs.com/package/colors
