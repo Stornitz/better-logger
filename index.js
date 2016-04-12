@@ -33,10 +33,11 @@ function getDate() {
  *
  * @method     log
  * @param      {String}  type    Type of the log
- * @param      {String}  msg     Message to log
+ * @param      {String}  args     Message to log
  */
-function log(type, msg) {
-	console[type](getDate() + msg);
+function log(type, prefix, args) {
+	var msg = util.format.apply(args)
+	console[type](getDate() + prefix + msg);
 }
 
 module.exports = {
@@ -44,32 +45,32 @@ module.exports = {
 	 * Like console.log but with prefix and color
 	 *
 	 * @method     info
-	 * @param      {String}  msg     Message
+	 * @param      {String[, ...]}  arguments     Arguments as a printf-like format
 	 */
-    info: function(msg) {
-		log('info', prefix.info + msg);
+    info: function() {
+		log('info', prefix.info, arguments);
 	},
 
 	/**
 	 * Same as module.info() but log to stderr
 	 */
-	error: function(msg) {
-		log('error', prefix.error + msg);
+	error: function() {
+		log('error', prefix.error, arguments);
 	},
 
 	/**
 	 * Same as module.warn()
 	 */
-	warn: function(msg) {
-		log('warn', prefix.warn + msg);
+	warn: function() {
+		log('warn', prefix.warn, arguments);
 	},
 
 	/**
 	 * Same as module.info() but log only if debug enabled
 	 */
-	debug: function(msg) {
+	debug: function() {
 		if(showDebug)
-			log('log', prefix.debug + msg);
+			log('log', prefix.debug, msg);
 	},
 
 	/**
