@@ -71,7 +71,7 @@ module.exports = {
 	 */
 	debug: function() {
 		if(showDebug)
-			log('log', prefix.debug, msg);
+			log('log', prefix.debug, arguments);
 	},
 
 	/**
@@ -156,7 +156,3 @@ module.exports = {
 			date['color'] = newColor;
 	}
 }
-
-
-
-module.exports.info('coucou %s c', "toto");
