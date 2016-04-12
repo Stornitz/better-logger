@@ -1,5 +1,6 @@
-var colors = require('colors/safe'),
-	dateFormat = require('dateformat');
+var colors = require('colors/safe');
+var util = require('util');
+var dateFormat = require('dateformat');
 
 var date = {
 	format: '[dd-mm HH:MM:ss] ',
@@ -36,7 +37,7 @@ function getDate() {
  * @param      {String}  args     Message to log
  */
 function log(type, prefix, args) {
-	var msg = util.format.apply(args)
+	var msg = util.format.apply(null, args);
 	console[type](getDate() + prefix + msg);
 }
 
@@ -155,3 +156,7 @@ module.exports = {
 			date['color'] = newColor;
 	}
 }
+
+
+
+module.exports.info('coucou %s c', "toto");
